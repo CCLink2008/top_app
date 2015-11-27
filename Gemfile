@@ -44,7 +44,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 # Use sqlite3 as the database for Active Record
 
 group :development, :test do
-	gem 'sqlite3'
+	gem 'sqlite3', '1.3.11'
 end
 group :test do
 	gem 'minitest-reporters', '1.0.5'
