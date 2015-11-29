@@ -1,8 +1,8 @@
-
 one:
-  name: MyString1
-  email: MyString1@j.com
-
-two:
-  name: MyString2
-  email: MyString2@j.com
+  name: MyString
+  email: MyString@mystr.com
+  
+michael:
+  name:  Michale Example
+  email:  michael@example
+  password_digest:  <%= User.digest('password')%>

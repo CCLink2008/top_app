@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+
+
   resources :microposts
 
   resources :users
@@ -18,6 +20,10 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   get 'home' => 'static_pages#home'
   get 'signup' => 'users#new'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
+  
 
   
   # get 'static_pages/home'
