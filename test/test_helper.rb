@@ -20,7 +20,7 @@ class ActiveSupport::TestCase
      							remember_me: remember_me
      	}
      else
-     	session[:user_id] = user_id 
+     	 session[:user_id] = nil 
      end 
   end
   def integration_test?

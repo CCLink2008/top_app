@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-# source 'https://ruby.taobao.org'
+# source 'https://rubygems.org'
+ source 'https://ruby.taobao.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -29,6 +29,9 @@ gem 'sprockets-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form', '3.2.0'
 
+gem 'faker', '1.6.1'
+gem 'will_paginate', '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
 # Use unicorn as the app server
 # gem 'unicorn'
 
