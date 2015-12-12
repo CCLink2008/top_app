@@ -4,6 +4,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
+  def setup
+  	# ActionMailer::Base.deliveries.clear
+  end
 
   test "invalid signup information" do
 	get signup_path
@@ -14,6 +17,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 			password_confirmation: "password" }
 	end
 	assert_template 'users/new'
-	assert is_logged_in?
-  end
+	# assert is_logged_in?
+	# assert_select 'div#error_explanation'
+	# assert_select 'div.field_with_errors'
+  end  
 end
