@@ -35,14 +35,9 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        # flash[:success] = "User was successfully created."
-        # log_in @user
         @user.send_activation_email
         flash[:info] ="Please check your email to activate your account."
-        
         format.html { redirect_to root_url}
-        # format.html { redirect_to @user}
-        # format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -53,35 +48,27 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    # respond_to do |format|
-    #   if @user.update(user_params)
-    #     flash[:success] ="Profile updated!"
-    #     format.html { redirect_to @user}
-    #     format.json { render :show, status: :ok, location: @user }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
-    if @user.update(user_params)
-      flash[:success] = "Profile updated!"
-      redirect_to @user
-    else
-      render :edit
-    end 
+    respond_to do |format|
+      if @user.update(user_params)
+        flash[:success] ="Profile updated!"
+        format.html { redirect_to @user}
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end   
   end
 
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
-    redirect_to users_url
-    # @user.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
+    User.find(params[:id]).destroy    
+    respond_to do |format|
+      flash[:success] = "User deleted"
+      format.html { redirect_to users_url }
+      format.json { head :no_content }
+    end
   end
 
   private
