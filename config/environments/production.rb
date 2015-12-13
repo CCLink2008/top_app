@@ -78,14 +78,15 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
+
   host = 'duptoy.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
-                :address => 'smtp.163.com',
+                :address => 'smtp.mailgun.org',
                 :port => '25',
                 :authentication => :plain,
-                :user_name => "dsc_006xt@163.com",
-                :password => "dsc7570909",
+                :user_name => "postmaster@sandbox9658303adb794cfda6fbad81cf94d952.mailgun.org",
+                :password => "bfe9657961970b286b0d9e61280bf7f7",
                 :domain => 'heroku.com',
                 :enable_starttls_auto => true
   }

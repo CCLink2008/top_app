@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "noreply@example.com"
+  default from: "postmaster@sandbox9658303adb794cfda6fbad81cf94d952.mailgun.org"
 
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -21,5 +21,5 @@ class UserMailer < ActionMailer::Base
     @user = user
 
     mail to:  user.email,subject:"Password reset"
-  end
+  end  
 end
