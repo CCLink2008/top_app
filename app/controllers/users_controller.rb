@@ -7,16 +7,18 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.paginate(page:params[:page],:per_page => 10)
-    # Post.paginate(:page => params[:page], )
+     @users = User.paginate(page:params[:page],:per_page => 10)
   end
   def home
+    if logged_in?
+        @micropost =current_user.microposts.build 
+        @feed_items = current_user.feed.paginate(page:params[:page])
+    end
   end
   # GET /users/1
   # GET /users/1.json
   def show   
-    
-    #debugger
+      @microposts = @user.microposts.paginate(page: params[:page])    
   end
 
   # GET /users/new
@@ -84,17 +86,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email,:password,:password_confirmation)
     end
-    def logged_in_user
-        unless logged_in?
-           store_location
-           flash[:danger] ="Please log in "
-           redirect_to login_url
-        end
-    end
+    #验证当前登录用户是否与current uer一致 。
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user) 
     end
+    #是否是管理员
     def admin_user
       redirect_to(root_url) unless current_user.admin?   
     end
