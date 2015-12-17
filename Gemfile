@@ -50,7 +50,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 # Use sqlite3 as the database for Active Record
 
 group :development, :test do	
-    source 'https://ruby.taobao.org'
 	gem 'sqlite3'
 	gem 'byebug'
 end
@@ -61,7 +60,6 @@ group :test do
 	gem 'guard-minitest', '2.3.1'
 end
 group :production do
-	source 'https://rubygems.org'  
 	gem 'pg', '0.17.1'
 	gem 'rails_12factor', '0.0.2'
 	gem 'puma'
