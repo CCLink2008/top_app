@@ -3,8 +3,9 @@
    <script type="text/javascript"
 src="https://maps.googleapis.com/maps/api/js?
 key=AIzaSyCdymjH2V5grp_NNKhdf7tJCIRB-IhWvE8&sensor=false">
-</script>  
- <!-- <script type="text/javascript"
+</script>
+<!--  
+ <script type="text/javascript"
 src="http://maps.google.cn/maps/api/js?sensor=false&language=zh-cn"></script>--> 
 
 <div class="container">
@@ -12,7 +13,9 @@ src="http://maps.google.cn/maps/api/js?sensor=false&language=zh-cn"></script>-->
 	<input type="button" onclick="showpos()" value="my position">
 	</div>
 	<div class="col-md-8">
-	  <div id="map"></div> 
+	  <div style='width: 800px;'>
+  <div id="basic_map" style='width: 800px; height: 400px;'></div>
+</div>
 	</div>
 </div>
 
@@ -20,28 +23,31 @@ src="http://maps.google.cn/maps/api/js?sensor=false&language=zh-cn"></script>-->
   var map ; 
   (function() {
   	  // Create a new map that is immediately displayed on the web page
-	  var mapDiv = document.getElementById('map'); 
-	  var options = {
-	      zoom: 12,
-	      center: new google.maps.LatLng(22.55, 114.07),
-	      mapTypeId: google.maps.MapTypeId.ROADMAP,
-	      scaleControl: true,
-	      noclear: true 
-	  };
-	  map = new google.maps.Map(mapDiv,options); 
-	  //创建一个标记，
-	  map.marker = new google.maps.Marker({
-      position: map.getCenter(),
-      map: map,
-      title:"my position"	  
-      });  
+	  // var mapDiv = document.getElementById('map'); 
+	  // var options = {
+	  //     zoom: 12,
+	  //     center: new google.maps.LatLng(22.55, 114.07),
+	  //     mapTypeId: google.maps.MapTypeId.ROADMAP,
+	  //     scaleControl: true,
+	  //     noclear: true 
+	  // };
+	  // map = new google.maps.Map(mapDiv,options); 
+	  // //创建一个标记，
+	  // map.marker = new google.maps.Marker({
+   //    position: map.getCenter(),
+   //    map: map,
+   //    title:"my position"	  
+   //    });  
       
-      //创建一个弹出框 。
- 	  map.infoowindow = new google.maps.InfoWindow({content:"hello,World"}) ; 
- 	  google.maps.event.addListener(map.marker,"click",function() {
- 	  		map.infoowindow.open(map,map.marker)
- 	  }) ;
- 	  setTimeout("showme();",2000) ;
+   //    //创建一个弹出框 。
+ 	 //  map.infoowindow = new google.maps.InfoWindow({content:"hello,World"}) ; 
+ 	 //  google.maps.event.addListener(map.marker,"click",function() {
+ 	 //  		map.infoowindow.open(map,map.marker)
+ 	 //  }) ;
+ 	 //  setTimeout("showme();",2000) ;
+ 	 handler = Gmaps.build('Google');
+     handler.buildMap({ internal: {id: 'basic_map' }});
+
      
    })();
 
