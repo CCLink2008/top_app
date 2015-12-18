@@ -1,15 +1,15 @@
 <% provide(:title,"Contact") -%>
 <h1>Contact</h1>
-   <script type="text/javascript"
+ <script type="text/javascript"
 src="https://maps.googleapis.com/maps/api/js?
 key=AIzaSyCdymjH2V5grp_NNKhdf7tJCIRB-IhWvE8&sensor=false">
-</script> 
+</script>  
  <!--  <script type="text/javascript"
-src="http://maps.google.cn/maps/api/js?sensor=false&language=zh-cn"></script>
--->
+src="http://maps.google.cn/maps/api/js?sensor=false&language=zh-cn"></script>-->
+
 <div class="container">
 	<div class="col-md-4">
-	<input type="button" onclick="showpos()" value="my position">	
+	<input type="button" onclick="showpos()" value="my position">
 	</div>
 	<div class="col-md-8">
 	  <div id="map"></div> 
@@ -34,9 +34,7 @@ src="http://maps.google.cn/maps/api/js?sensor=false&language=zh-cn"></script>
       position: map.getCenter(),
       map: map,
       title:"my position"	  
-      });     
-
-
+      });  
       
       //创建一个弹出框 。
  	  map.infoowindow = new google.maps.InfoWindow({content:"hello,World"}) ; 
@@ -47,15 +45,15 @@ src="http://maps.google.cn/maps/api/js?sensor=false&language=zh-cn"></script>
      
    })();
 
-  // function showpos()
-  // {    
-  //   // Adding a marker to the map
-  //   var marker = new google.maps.Marker({
-  //     position: map.getCenter(),
-  //     map: map,
-  //     title:"click me !",
-  //     });
-  // }  
+  function showpos()
+  {    
+    // Adding a marker to the map
+    var marker = new google.maps.Marker({
+      position: map.getCenter(),
+      map: map,
+      title:"click me !",
+      });
+  }  
   function showme()
   {
   	if (map.marker)
