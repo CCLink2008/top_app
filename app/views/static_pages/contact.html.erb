@@ -1,69 +1,7 @@
 <% provide(:title,"Contact") -%>
 <h1>Contact</h1>
-<!---->  
-<script type="text/javascript"
-src="http://maps.google.cn/maps/api/js?sensor=false&language=zh-cn"></script> 
+<!----> 
 
-<script type="text/javascript">
-
-$(window).load(function() {
-  // loadScript();
-});
-var map ; 
-  (function() {
-      // Create a new map that is immediately displayed on the web page
-    var mapDiv = document.getElementById("map"); 
-    var options = {
-        zoom: 12,
-        center: new google.maps.LatLng(22.55, 114.07),
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        scaleControl: true,
-        noclear: true 
-    };
-    map = new google.maps.Map(mapDiv,options); 
-    //创建一个标记，
-    map.marker = new google.maps.Marker({
-      position: map.getCenter(),
-      map: map,
-      title:"my position"   
-      }); 
-      
-    //创建一个弹出框 。
-    map.infoowindow = new google.maps.InfoWindow({content:"hello,World"}) ; 
-    google.maps.event.addListener(map.marker,"click",function() {
-        map.infoowindow.open(map,map.marker)
-    }) ;
-    setTimeout("showme();",2000) ;
-     
-   })();
-   function showpos()
-  {    
-    // Adding a marker to the map
-    var marker = new google.maps.Marker({
-      position: map.getCenter(),
-      map: map,
-      title:"click me !",
-      });
-  }
-  function showme()
-  {
-    if (map.marker)
-      map.infoowindow.open(map,map.marker)
-  }
-
-function loadScript() {
-  console.log("map loading ...");
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  //'https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBJYFdplGeKUUEmGZ-vL4ydiSZ09Khsa_o&sensor=false&libraries=drawing'
-  script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp' +
-    //'&v=3.14'+
-    //'&key=AIzaSyBJYFdplGeKUUEmGZ-vL4ydiSZ09Khsa_o'+
-    '&libraries=drawing'+
-    '&callback=initialize';
-  document.body.appendChild(script);
-}
-</script>
 <div class="container">
 	<div class="col-md-4">
 	<input type="button" onclick="showpos()" value="my position">
