@@ -3,10 +3,12 @@
 <head>
   <title><%= full_title(yield(:title)) -%></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-   <script type="text/javascript"
+  <!-- <script type="text/javascript"
 src="https://maps.googleapis.com/maps/api/js?
 key=AIzaSyCdymjH2V5grp_NNKhdf7tJCIRB-IhWvE8&sensor=false">
-</script>
+</script> -->
+ <script type="text/javascript"
+src="http://maps.google.cn/maps/api/js?key=AIzaSyCdymjH2V5grp_NNKhdf7tJCIRB-IhWvE8&sensor=false&language=zh-cn"></script>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
   <%= csrf_meta_tags %>
