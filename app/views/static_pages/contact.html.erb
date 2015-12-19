@@ -7,6 +7,13 @@ src="http://maps.google.cn/maps/api/js?sensor=false&language=zh-cn"></script>-->
 	<input type="button" onclick="showpos()" value="my position">
 	</div>
 	<div class="col-md-8">
-	<div id="map">	</div>
+	<div id="map"></div>
+  <script>
+    var map = new GMaps({
+      el: '#map',
+      lat: -12.043333,
+      lng: -77.028333
+    });
+  </script>
 	</div>
 </div>

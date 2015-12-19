@@ -1,63 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <style type="text/css">
-      html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 500px ; width: 100% }
-    </style>
- <!--   <script type="text/javascript"
-src="https://maps.googleapis.com/maps/api/js?
-key=AIzaSyCdymjH2V5grp_NNKhdf7tJCIRB-IhWvE8&sensor=false">
-</script> -->
-     <script type="text/javascript"
-src="http://maps.google.cn/maps/api/js?sensor=false&language=zh-cn"></script>
-  </head>
-  <body>
-  <h1>this is a map demo,ok</h1> 
-  <input type="button" onclick="showpos()" value="创建标签"> 
-    <div id="mapdiv"></div>
-</body>
-</html>
-<script  type="text/javascript">
-  var map ; 
-  (function() {
-      // Create a new map that is immediately displayed on the web page
-    var mapDiv = document.getElementById('mapdiv'); 
-    var options = {
-        zoom: 12,
-        center: new google.maps.LatLng(22.55, 114.07),
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        scaleControl: true,
-        noclear: true 
-    };
-    map = new google.maps.Map(mapDiv,options); 
-    //创建一个标记，
-    map.marker = new google.maps.Marker({
-      position: map.getCenter(),
-      map: map,
-      title:"my position"   
-      }); 
-      
-    //创建一个弹出框 。
-    map.infoowindow = new google.maps.InfoWindow({content:"hello,World"}) ; 
-    google.maps.event.addListener(map.marker,"click",function() {
-        map.infoowindow.open(map,map.marker)
-    }) ;
-    setTimeout("showme();",2000) ;
-     
-   })();
-   function showpos()
-  {    
-    // Adding a marker to the map
-    var marker = new google.maps.Marker({
-      position: map.getCenter(),
-      map: map,
-      title:"click me !",
-      });
-  }
-  function showme()
-  {
-    if (map.marker)
-      map.infoowindow.open(map,map.marker)
-  }
-</script>
+<div id="map"></div>
+  <script>
+    var map = new GMaps({
+      el: '#map',
+      lat: -12.043333,
+      lng: -77.028333
+    });
+  </script>
