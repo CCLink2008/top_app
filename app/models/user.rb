@@ -1,11 +1,16 @@
 class User < ActiveRecord::Base
+    #属性访问
 	attr_accessor :remember_token,:activation_token,:reset_token
+    #保存之前，把email格式化为小写字母
     before_save :downcase_email
     before_create :create_activation_digest
+    #User 有很多微博，如何用户被删除，相关的微博也会删除
 	has_many :microposts,dependent: :destroy
+    # 主动关系 模型名为Relationship  外键 follower_id 该用户关注了哪些用户
     has_many :active_relationships, class_name: "Relationship",
                                     foreign_key: "follower_id",
                                     dependent: :destroy
+    #被动关系 模型名为Relationship 外键 followed_id 该用户被哪些用户关注
     has_many :passive_relationships , class_name: "Relationship",
                                     foreign_key: "followed_id",
                                     dependent: :destroy
@@ -81,15 +86,15 @@ class User < ActiveRecord::Base
 
        Micropost.where("user_id IN (#{following_ids}) OR user_id = :user_id",user_id: id)
     end 
-    #follows a user 
+    #follows a user  关注一个用户
     def follow(other_user)
       active_relationships.create(followed_id:other_user.id)       
     end  
-    #unfollows a user 
+    #unfollows a user  取消关注一个用户
     def unfollow(other_user)
        active_relationships.find_by(followed_id:other_user.id).destroy      
     end 
-    #return true if the current user is following the other user 
+    #return true if the current user is following the other user  判断当前用户和其他用户的关系
     def following?(other_user)
         following.include?(other_user)
     end 
