@@ -90,6 +90,7 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])     
+      # @user = User.find_by_id(params[:id])     
       
       rescue ActiveRecord::RecordNotFound
          redirect_to root_url 
